@@ -6,17 +6,30 @@ output:
     df_print: paged
 ---
 
+First, let's read in the data.
+
 ```{r}
 choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
 head(choco)
 ```
+
+## \#1.
 
 Let's make a histogram of the rating distribution.
 ```{r}
 hist(choco$Rating)
 ```
 
-The ratings appear to be skewed slightly left, with the most common ratings being between 2.5 and 3.5. There appear to be some outliers at the high end of the ratings near 4.5 — 5.
+The ratings appear to be skewed slightly left, with the most common ratings being between 2.5 and 3.5. There appear to be some outliers at the high end of the ratings near 4.5 — 5.We can confirm this with a box plot.
+
+```{r}
+boxplot(choco$Rating)
+```
+
+
+According to the box plot, there are even some outliers from 1 up to about 2.
+
+## \#2.
 
 Let's see if ratings depend on the cacao percentage of a chocolate bar.
 
@@ -26,11 +39,18 @@ plot(choco$Rating, choco$Cocoa.Pct, pch=19)
 
 There doesn't appear to be any relationship between cacao percentage and the rating.
 
+## Preliminary exploration for question set in `team.Rmd`
+```{r}
+#1. What is the overall number of chocolate bars rated?
+nrow(choco)
+
+#2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
 
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+#3. Which are the three locations with the most ratings? How do ratings compare across these company locations?
+sort(table(choco$Company.Location), decreasing = TRUE)
+chocoCountries <- choco[choco$Company.Location == c('U.S.A.', 'France', 'Canada'), ]
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```
 
