@@ -20,7 +20,7 @@ Let's make a histogram of the rating distribution.
 hist(choco$Rating)
 ```
 
-The ratings appear to be skewed slightly left, with the most common ratings being between 2.5 and 3.5. There appear to be some outliers at the high end of the ratings near 4.5 — 5.We can confirm this with a box plot.
+The ratings appear to be skewed slightly left, with the most common ratings being between 2.5 and 3.5. There appear to be some outliers at the high end of the ratings near 4.5 — 5. We can confirm this with a box plot.
 
 ```{r}
 boxplot(choco$Rating)
