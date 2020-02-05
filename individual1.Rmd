@@ -1,7 +1,9 @@
 ---
 title: "R Notebook"
 author: "Connor Toliver; @connortoliver"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r}
@@ -13,6 +15,7 @@ Let's make a histogram of the rating distribution.
 ```{r}
 hist(choco$Rating)
 ```
+
 The ratings appear to be skewed slightly left, with the most common ratings being between 2.5 and 3.5. There appear to be some outliers at the high end of the ratings near 4.5 — 5.
 
 Let's see if ratings depend on the cacao percentage of a chocolate bar.
@@ -20,6 +23,7 @@ Let's see if ratings depend on the cacao percentage of a chocolate bar.
 ```{r}
 plot(choco$Rating, choco$Cocoa.Pct, pch=19)
 ```
+
 There doesn't appear to be any relationship between cacao percentage and the rating.
 
 
