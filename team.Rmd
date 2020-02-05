@@ -18,3 +18,25 @@ ggplot(choco, aes(x = choco$Review.Date)) + geom_bar()
 ```
 
 According to the bar chart, there are more ratings in recent years.
+
+```{r}
+sort(table(choco$Company.Location), decreasing = TRUE)
+```
+```{r}
+mean(choco$Rating[choco$Company.Location == "U.S.A."])
+```
+```{r}
+mean(choco$Rating[choco$Company.Location == "France"])
+```
+```{r}
+mean(choco$Rating[choco$Company.Location == "Canada"])
+```
+
+Canada has the highest average rating out of the three countries but they are all fairly close.
+
+```{r}
+ggplot(choco, aes(x=choco$Review.Date, y=choco$Rating)) + geom_point(shape=16, size=3) + theme_bw()
+```
+We wanted to see if there was a correlation between Review date and Rating and based off this scatterplot it appears that there really isn't any correlation.
+
+We took turns working on questions and pushing and pulling from different laptops. It was an improvement from lab 1. Individual 1 created the github repository and individual 2 cloned it.
