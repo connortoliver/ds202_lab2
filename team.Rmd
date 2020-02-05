@@ -1,0 +1,20 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+```{r}
+library(ggplot2)
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+nrow(choco)
+```
+
+```{r}
+ggplot(choco, aes(x = choco$Review.Date)) + geom_bar()
+
+```
+
+According to the bar chart, there are more ratings in recent years.
